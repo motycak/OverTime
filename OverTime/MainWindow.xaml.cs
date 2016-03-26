@@ -30,14 +30,49 @@ namespace OverTime
             DataContext = _calculate;
         }
 
+
+
+        #region TabCalculate
+
+        private void btnRefreshActualTime_Click(object sender, RoutedEventArgs e)
+        {
+            _calculate.SetActualTime();
+        }
+
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
             _calculate.CalculateOvertime();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             _calculate.Clear();
         }
+
+        #endregion
+
+
+
+
+        #region TabPayOvertime
+
+        private void btnSendPayOvertime_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSavePayOvertime_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+
     }
 }
