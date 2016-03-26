@@ -9,24 +9,84 @@ namespace OverTime
 {
     public class Calculate : INotifyPropertyChanged
     {
+        private const string DEFAULT_TIME = "00:00";
+        private const string DEFAULT_HOURS = "00";
 
         public Calculate()
         {
-            this.StartWork = string.Format("00:00");
-            this.Lunch = string.Format("00:00");
-            this.ActualTime = string.Format("00:00");
-            this.OverTime = string.Format("00:00");
+            this.StartWork = DEFAULT_TIME;
+            this.Lunch = DEFAULT_HOURS;
+            this.SetActualTime();
+            this.OverTime = DEFAULT_TIME;
         }
 
-
-
-        
 
 
         public void SetActualTime()
         {
             this.ActualTime = (string)DateTime.Now.ToLocalTime().ToString("HH:mm");
         }
+
+
+
+        public void CalculateOvertime()
+        {
+            try
+            {
+                DateTime startTime = this.GetTime(this.StartWork, "Zle zadaná hodnota čas príchodu.");
+                long lunchTime = this.GetCountHours(this.Lunch, "Zle zadaná hodnota dĺžka obedu.");
+                DateTime actualTime = this.GetTime(this.ActualTime, "Zle zadaná hodnota aktuálny čas.");
+
+                long eightHours = 8 * 60 * 60000 + lunchTime;
+                var workTime = actualTime - startTime;
+                var workTimeMilliseconds = Math.Abs(Convert.ToInt64(workTime.TotalMilliseconds));
+
+                if (workTimeMilliseconds > eightHours)
+                {
+                    TimeSpan t = TimeSpan.FromMilliseconds(workTimeMilliseconds - eightHours);
+                    this.Message = string.Format("Nadčas: {0}:{1}", t.Hours, t.Minutes);
+                }
+                else
+                {
+                    TimeSpan t = TimeSpan.FromMilliseconds(eightHours - workTimeMilliseconds);
+                    this.Message = string.Format("Do nadčasu ti chýba: {0}:{1}", t.Hours, t.Minutes);
+                }
+
+            }
+            catch {
+            }
+            
+        }
+
+
+
+        private DateTime GetTime(string time, string errorMessage)
+        {
+            try
+            {
+                return Convert.ToDateTime(time);
+            }
+            catch {
+                this.Message = errorMessage;
+                throw new Exception();
+            }
+        }
+
+
+
+        private long GetCountHours(string time, string errorMessage)
+        {
+            try
+            {
+                return Convert.ToInt64(time) * 60000;
+            }
+            catch
+            {
+                this.Message = errorMessage;
+                throw new Exception();
+            }
+        }
+
 
 
         #region Property
@@ -73,6 +133,18 @@ namespace OverTime
             {
                 _overTime = value;
                 this.OnPropertyChanged("OverTime");
+            }
+        }
+
+
+        private string _Message;
+        public string Message
+        {
+            get { return _Message; }
+            set
+            {
+                _Message = value;
+                this.OnPropertyChanged("Message");
             }
         }
 

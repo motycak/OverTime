@@ -21,14 +21,18 @@ namespace OverTime
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Calculate _calculate;
+
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new Calculate();
+            _calculate = new Calculate();
+            DataContext = _calculate;
         }
 
-
-
-       
+        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            _calculate.CalculateOvertime();
+        }
     }
 }

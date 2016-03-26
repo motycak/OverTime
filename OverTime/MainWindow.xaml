@@ -22,13 +22,13 @@
                     <TextBox x:Name="txtStartWork" Text="{Binding Path=StartWork, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="0,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextAlignment="Center" AcceptsTab="True"/>
                     <TextBox x:Name="txtLunch" Text="{Binding Path=Lunch, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextAlignment="Center" AcceptsTab="True"/>
                     <TextBox x:Name="txtActualTime" Text="{Binding Path=ActualTime, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="0,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextAlignment="Center" AcceptsTab="True"/>
-                    <TextBox x:Name="txtOverTime" Text="{Binding Path=ActualTime, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="0,147,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="45" FontWeight="Bold" TextAlignment="Center" AcceptsTab="True"/>
-                    <Button x:Name="button" Content="Vyčisti" Grid.Column="2" HorizontalAlignment="Left" Margin="5,196,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+                    <Button x:Name="btnClear" Content="Vyčisti" Grid.Column="2" HorizontalAlignment="Left" Margin="33,219,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
                     <Label x:Name="label4" Content="od" Grid.Column="2" HorizontalAlignment="Left" Margin="56,52,0,0" VerticalAlignment="Top" Height="26" Width="24"/>
                     <TextBox x:Name="txtLunchFrom" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="80,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="45" TextAlignment="Center"/>
                     <TextBox x:Name="txtLunchTo" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="151,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="45" TextAlignment="Center"/>
                     <Label x:Name="label5" Content="do" Grid.Column="2" HorizontalAlignment="Left" Margin="127,53,0,0" VerticalAlignment="Top" Height="26" Width="24"/>
-                    <Button x:Name="button1" Content="Vypočítaj" Grid.Column="2" HorizontalAlignment="Left" Margin="95,196,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+                    <Button x:Name="btnCalculate" Content="Vypočítaj" Grid.Column="2" HorizontalAlignment="Left" Margin="121,219,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnCalculate_Click"/>
+                    <Label x:Name="lblMessage" Content="{Binding Path=Message, Mode=TwoWay}"  Grid.Column="2" HorizontalAlignment="Left" Margin="1,144,0,0" VerticalAlignment="Top" Background="White" Height="26" Width="249"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Platený nadčas" Height="50"/>
