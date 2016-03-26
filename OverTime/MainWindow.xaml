@@ -18,23 +18,37 @@
                     <Label x:Name="label" Content="Príchod do práce" Grid.Column="1" HorizontalAlignment="Left" Margin="0,21,0,0" VerticalAlignment="Top" Height="26" Width="125"/>
                     <Label x:Name="label1" Content="Obed (dĺžka v minútach)" Grid.Column="1" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="144" Height="26"/>
                     <Label x:Name="label2" Content="Aktuálny čas" Grid.Column="1" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top" Width="125" Height="26"/>
-                    <Label x:Name="label3" Content="Nadčas" Grid.Column="1" HorizontalAlignment="Left" Margin="0,144,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold" Height="26"/>
+                    <Label x:Name="label3" Content="Nadčas" Grid.Column="1" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold" Height="26"/>
                     <TextBox x:Name="txtStartWork" Text="{Binding Path=StartWork, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="0,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextAlignment="Center" AcceptsTab="True"/>
                     <TextBox x:Name="txtLunch" Text="{Binding Path=Lunch, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextAlignment="Center" AcceptsTab="True"/>
                     <TextBox x:Name="txtActualTime" Text="{Binding Path=ActualTime, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="0,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextAlignment="Center" AcceptsTab="True"/>
-                    <Button x:Name="btnClear" Content="Vyčisti" Grid.Column="2" HorizontalAlignment="Left" Margin="83,224,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnClear_Click"/>
+                    <Button x:Name="btnSave" Content="Ulož" Grid.Column="2" HorizontalAlignment="Left" Margin="87,231,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnClear_Click"/>
                     <Label x:Name="label4" Content="od" Grid.Column="2" HorizontalAlignment="Left" Margin="47,52,0,0" VerticalAlignment="Top" Height="26" Width="24"/>
                     <TextBox x:Name="txtLunchFrom" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="71,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="45" TextAlignment="Center"/>
                     <TextBox x:Name="txtLunchTo" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="142,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="45" TextAlignment="Center"/>
                     <Label x:Name="label5" Content="do" Grid.Column="2" HorizontalAlignment="Left" Margin="118,53,0,0" VerticalAlignment="Top" Height="26" Width="24"/>
-                    <Button x:Name="btnCalculate" Content="Vypočítaj" Grid.Column="2" HorizontalAlignment="Left" Margin="172,224,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnCalculate_Click"/>
-                    <Label x:Name="lblMessage" Content="{Binding Path=Message, Mode=TwoWay}"  Grid.Column="2" HorizontalAlignment="Left" Margin="1,144,0,0" VerticalAlignment="Top" Background="White" Height="26" Width="249"/>
+                    <Button x:Name="btnCalculate" Content="Vypočítaj" Grid.Column="2" HorizontalAlignment="Left" Margin="172,231,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnCalculate_Click"/>
+                    <Label x:Name="lblMessage" Content="{Binding Path=Message, Mode=TwoWay}"  Grid.Column="2" HorizontalAlignment="Left" Margin="1,150,0,0" VerticalAlignment="Top" Background="White" Height="26" Width="249"/>
                     <Button x:Name="btnRefreshActualTime" Content="Refresh" Grid.Column="2" HorizontalAlignment="Left" Margin="198,89,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Button x:Name="btnClear" Content="Vyčisti" Grid.Column="2" HorizontalAlignment="Left" Margin="1,231,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnClear_Click"/>
+                    <Label x:Name="label10" Content="___________________________________________________________________________________________________________________________________________________________" Grid.Column="1" HorizontalAlignment="Left" Margin="1,115,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="392" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Platený nadčas" Height="50"/>
+            <TabItem Header="Platený nadčas" Height="50">
+                <Grid Background="White">
+                    <Label x:Name="label8" Content="Email" Margin="17,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="38"/>
+                    <TextBox x:Name="txtEmailPayOvertime1" Margin="89,23,10,212" TextWrapping="Wrap" Text="@" Background="{x:Null}"/>
+                    <Label x:Name="label9" Content="Správa" HorizontalAlignment="Left" Margin="17,64,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="155" Margin="89,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" RenderTransformOrigin="0.238,-0.243" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="Náhradko" Height="50">
-                <Grid Background="White"/>
+                <Grid Background="White">
+                    <Label x:Name="label6" Content="Email" Margin="17,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="38"/>
+                    <TextBox x:Name="txtEmailPayOvertime2" Margin="89,23,10,212" TextWrapping="Wrap" Text="@" Background="{x:Null}"/>
+                    <Label x:Name="label7" Content="Správa" HorizontalAlignment="Left" Margin="17,64,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="155" Margin="89,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" RenderTransformOrigin="0.238,-0.243" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
