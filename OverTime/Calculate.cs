@@ -14,10 +14,7 @@ namespace OverTime
 
         public Calculate()
         {
-            this.StartWork = DEFAULT_TIME;
-            this.Lunch = DEFAULT_HOURS;
-            this.SetActualTime();
-            this.OverTime = DEFAULT_TIME;
+            this.SetDefaultValues();
         }
 
 
@@ -25,6 +22,13 @@ namespace OverTime
         public void SetActualTime()
         {
             this.ActualTime = (string)DateTime.Now.ToLocalTime().ToString("HH:mm");
+        }
+
+
+
+        public void Clear()
+        {
+            this.SetDefaultValues();
         }
 
 
@@ -56,6 +60,16 @@ namespace OverTime
             catch {
             }
             
+        }
+
+
+
+        private void SetDefaultValues()
+        {
+            this.StartWork = DEFAULT_TIME;
+            this.Lunch = DEFAULT_HOURS;
+            this.SetActualTime();
+            this.OverTime = DEFAULT_TIME;
         }
 
 

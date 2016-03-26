@@ -34,5 +34,10 @@ namespace OverTime
         {
             _calculate.CalculateOvertime();
         }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            _calculate.Clear();
+        }
     }
 }
